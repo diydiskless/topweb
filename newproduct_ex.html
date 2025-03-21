@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Night Sky Login Form</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Full page background with dark sky */
+        body {
+            margin: 0;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, #87CEEB, #0e0e2c);
+            font-family: Arial, sans-serif;
+            color: white;
+            position: relative;
+            padding-top: 60px; /* Add top padding to avoid navbar overlapping content */
+        }
+
+        /* Content section */
+        .content {
+            text-align: left;
+            width: 90%;
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* Table container with fixed header */
+        .table-container {
+            max-height: 500px; /* Adjust the height as needed */
+            overflow-y: auto; /* Enable vertical scrolling */
+            display: block;
+            position: relative;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        /* Fixed header on scroll */
+        thead th {
+            position: sticky;
+            top: 0;
+            z-index: 1; /* Ensures the header stays above the table body */
+            background-color: #333; /* Keeps the header background consistent */
+        }
+
+        /* Footer styles */
+        footer {
+            position: absolute;
+            bottom: 10px;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Placeholder for navbar -->
+    <div id="navbar-container"></div>
+  
+    <!-- Content area for table -->
+    <div class="content">
+        <h3>Item List</h3>
+
+        <!-- Table with scrolling -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Item</th>
+                        <th>SKU</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample rows (10 total) -->
+                    <tr>
+                        <td>1</td>
+                        <td>Sample Item 1</td>
+                        <td>12345</td>
+                        <td>This is a sample description for item 1.</td>
+                        <td>$100</td>
+                        <td><button class="btn btn-primary">View</button></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Sample Item 2</td>
+                        <td>67890</td>
+                        <td>This is a sample description for item 2.</td>
+                        <td>$200</td>
+                        <td><button class="btn btn-primary">View</button></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Sample Item 3</td>
+                        <td>11223</td>
+                        <td>This is a sample description for item 3.</td>
+                        <td>$150</td>
+                        <td><button class="btn btn-primary">View</button></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Sample Item 4</td>
+                        <td>33445</td>
+                        <td>This is a sample description for item 4.</td>
+                        <td>$175</td>
+                        <td><button class="btn btn-primary">View</button></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Sample Item 5</td>
+                        <td>55678</td>
+                        <td>This is a sample description for item 5.</td>
+                        <td>$250</td>
+                        <td><button class="btn btn-primary">View</button></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Sample Item 6</td>
+                        <td>77889</td>
+                        <td>This is a sample description for item 6.</td>
+                        <td>$300</td>
+                        <td><button class="btn btn-primary">View</button></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Sample Item 7</td>
+                        <td>99001</td>
+                        <td>This is a sample description for item 7.</td>
+                        <td>$350</td>
+                        <td><button class="btn btn-primary">View</button></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Sample Item 8</td>
+                        <td>22334</td>
+                        <td>This is a sample description for item 8.</td>
+                        <td>$400</td>
+                        <td><button class="btn btn-primary">View</button></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Sample Item 9</td>
+                        <td>44556</td>
+                        <td>This is a sample description for item 9.</td>
+                        <td>$450</td>
+                        <td><button class="btn btn-primary">View</button></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Sample Item 10</td>
+                        <td>66778</td>
+                        <td>This is a sample description for item 10.</td>
+                        <td>$500</td>
+                        <td><button class="btn btn-primary">View</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        Copyright &copy; SkyWide Studio <span id="year"></span>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        // Get the current year and update the footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Logout function
+        function logout() {
+            alert('You have logged out.');
+            // Here, you can add your logout logic like redirecting or clearing session data
+        }
+
+        // JavaScript to load navbar.html dynamically
+        function loadNavbar() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'navbar.html', true);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    document.getElementById('navbar-container').innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        }
+
+        // Load the navbar when the page loads
+        window.onload = loadNavbar;
+    </script>
+
+</body>
+</html>
