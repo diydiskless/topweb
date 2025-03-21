@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyWide Studio Navbar</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Navbar styles */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #333;
+            z-index: 10;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        /* Show dropdown menu when hovering over the nav link */
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Dropdown menu background color set to white */
+        .dropdown-menu {
+            background-color: white; /* White background */
+            border-radius: 4px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Active link styles */
+        .active {
+            background-color: #555;
+            color: white; /* Ensures the active link text is white */
+            font-weight: bold; /* Makes the text bold */
+        }
+
+        /* Style for active dropdown items */
+        .dropdown-item.active {
+            background-color: #555;
+            color: white; /* Text color when active */
+            font-weight: bold; /* Makes the text bold */
+        }
+
+        /* Style for hover on dropdown items */
+        .dropdown-item:hover {
+            background-color: #444;
+            color: white;
+        }
+
+        /* Dropdown item style when active */
+        .dropdown-item {
+            color: #333; /* Set default text color for dropdown items */
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">SkyWide Studio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="main.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Product
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="newproduct.html" id="newProductLink">New Product</a></li>
+                            <li><a class="dropdown-item" href="newproduct_ex.html" id="exchangeItemLink">Exchange Item</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Menu 2</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menu3Link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Menu 3
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" id="submenuALink">Submenu A</a></li>
+                            <li><a class="dropdown-item" href="#">Submenu B</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: red;">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        // Function to highlight the active link based on the current page
+        function setActiveLink() {
+            const currentPage = window.location.pathname.split("/").pop();
+
+            // For main pages
+            const links = {
+                "main.html": "homeLink",
+                "newproduct.html": "productLink",
+                "newproduct_ex.html": "productLink"
+            };
+
+            // Loop through the links and set the active class
+            for (const [page, linkId] of Object.entries(links)) {
+                const link = document.getElementById(linkId);
+                if (currentPage === page) {
+                    link.classList.add("active");
+                } else {
+                    link.classList.remove("active");
+                }
+            }
+        }
+
+        // Set active for dropdown items when clicked
+        const dropdownItems = document.querySelectorAll('.dropdown-item');
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', function () {
+                // Remove 'active' class from all items
+                dropdownItems.forEach(i => i.classList.remove('active'));
+                // Add 'active' class to the clicked item
+                item.classList.add('active');
+            });
+        });
+
+        window.onload = setActiveLink;
+    </script>
+
+</body>
+</html>
