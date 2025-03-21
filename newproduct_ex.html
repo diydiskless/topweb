@@ -9,38 +9,43 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        /* Full page background with dark sky */
-        body {
-            margin: 0;
-            height: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(to bottom, #87CEEB, #0e0e2c);
-            font-family: Arial, sans-serif;
-            color: white;
-            position: relative;
-            padding-top: 60px; /* Add top padding to avoid navbar overlapping content */
-        }
+/* Ensure the html and body take up full height */
+html, body {
+    height: 100%;  /* Set both to full height */
+    margin: 0;     /* Remove default margins */
+}
 
-        /* Content section */
-        .content {
-            text-align: left;
-            width: 90%;
-            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
-            padding: 20px;
-            border-radius: 8px;
-            color: white
-        }
+/* Full page background with dark sky */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #87CEEB, #0e0e2c);
+    font-family: Arial, sans-serif;
+    color: white;
+    padding-top: 60px; /* Add top padding to avoid navbar overlapping content */
+    min-height: 100vh; /* Ensure body takes at least full height */
+}
 
-        /* Table container with fixed header */
-        .table-container {
-            max-height: 500px; /* Adjust the height as needed */
-            overflow-y: auto; /* Enable vertical scrolling */
-            display: block;
-            position: relative;
-        }
+/* Content section */
+.content {
+    text-align: left;
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+}
+
+/* Table container with fixed header */
+.table-container {
+    max-height: 500px; /* Adjust the height as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+    display: block;
+    position: relative;
+}
+
 
         table {
             width: 100%;
