@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Night Sky Login Form</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Full page background with dark sky */
+        body {
+            margin: 0;
+            height: auto; /* Full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Aligns content to the bottom */
+            align-items: center;
+            background: linear-gradient(to bottom, #87CEEB, #0e0e2c);
+            font-family: Arial, sans-serif;
+            color: white;
+            position: relative;
+            padding-top: 60px; /* Add top padding to avoid navbar overlapping content */
+        }
+
+        /* Content section */
+        .content {
+            text-align: center;
+            width: 90%;
+            max-width: 600px; /* Optional: Set a max-width to prevent it from getting too wide */
+            margin-bottom: 30px; /* Space above the footer/navbar */
+        }
+
+        /* Top title frame */
+        .top-title {
+            width: 90%;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            font-size: 24px;
+            color: white;
+            text-align: left;
+        }
+
+        /* Form section */
+        .form-section {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 20px;
+			box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3); /* White shadow */
+        }
+
+        .form-group label {
+            color: white;
+			text-align: left; /* Align label text to the left */
+			display: block; /* Ensure label takes up full width for left alignment */
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background-color: #333;
+            color: white;
+        }
+
+        /* Footer styles */
+        footer {
+            position: absolute;
+            bottom: 0px;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Placeholder for navbar -->
+    <div id="navbar-container"></div>
+  
+    <!-- Content area -->
+    <div class="content">
+        <!-- Form for new product adding -->
+        <div class="form-section">
+            <h3 class="text-center mb-4">Add New Product</h3>
+            <form action="#" method="POST">
+                <div class="form-group mb-3">
+                    <label for="itemName">Item Name</label>
+                    <input type="text" class="form-control" id="itemName" name="itemName" required autofocus>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="itemSKU">Item SKU</label>
+                    <input type="text" class="form-control" id="itemSKU" name="itemSKU" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="itemDescription">Item Description</label>
+                    <textarea class="form-control" id="itemDescription" name="itemDescription" rows="4" required></textarea>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="itemPrice">Item Price</label>
+                    <input type="number" class="form-control" id="itemPrice" name="itemPrice" required>
+                </div>
+                <button type="submit" class="btn btn-success mt-3 w-100">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        Copyright &copy; SkyWide Studio <span id="year"></span>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        // Get the current year and update the footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Logout function
+        function logout() {
+            alert('You have logged out.');
+            // Here, you can add your logout logic like redirecting or clearing session data
+        }
+
+        // JavaScript to load navbar.html dynamically
+        function loadNavbar() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'navbar.html', true);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    document.getElementById('navbar-container').innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        }
+
+        // Load the navbar when the page loads
+        window.onload = loadNavbar;
+    </script>
+
+</body>
+</html>
